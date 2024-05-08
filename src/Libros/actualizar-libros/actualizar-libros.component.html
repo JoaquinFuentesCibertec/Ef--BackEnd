@@ -1,0 +1,46 @@
+<div id="wrapper">
+    <aside id="sidebar-wrapper">
+      <div class="sidebar-brand">
+        <h2>Listado Libros</h2>
+      </div>
+      <ul class="sidebar-nav">
+        <li>
+          <a href=""><i class="fa fa-list"></i>Libros</a>
+        </li>
+        <li>
+          <a href="/nuevo"><i class="fa fa-plus"></i>Nuevo Libro</a>
+        </li>
+      </ul>
+    </aside>
+
+
+    <div class="container-Actualizar">
+        <form class="row g-3" [formGroup]="libroForm" (ngSubmit)="actualizarlibros()">
+            <div class="col-md-6">
+              <label for="inputName" class="form-label">Titulo</label>
+              <input type="text" class="form-control" formControlName="titulo">
+            </div>
+              <div class="col-md-6">
+                <label for="inputPre" class="form-label">Precio</label>
+                <input type="number" class="form-control" formControlName="precio">
+              </div>
+              <div class="col-md-6">
+                <label for="inputDes" class="form-label">Cant.Ejemplares</label>
+                <input type="number" class="form-control" formControlName="cantEjemplares">
+              </div>
+              <div class="col-md-6">
+                <label for="inputName" class="form-label">Origen</label>
+                <input type="text" class="form-control" formControlName="origen">
+              </div>
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">Tema</label>
+                <select formControlName="idtema" class="form-select">
+                  <option selected *ngFor="let Tema of temas" [value]="Tema.idtema">{{ Tema.nombre }}</option>
+                </select>
+              </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Actualizar</button>
+            </div>
+          </form>
+    </div>
+    </div>

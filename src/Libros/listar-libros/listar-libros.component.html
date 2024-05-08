@@ -1,0 +1,43 @@
+<div id="wrapper">
+    <aside id="sidebar-wrapper">
+      <div class="sidebar-brand">
+        <h2>Listado Libros</h2>
+      </div>
+      <ul class="sidebar-nav">
+        <li>
+          <a href=""><i class="fa fa-list"></i>Libros</a>
+        </li>
+        <li>
+          <a href="/nuevo"><i class="fa fa-plus"></i>Nuevo Libro</a>
+        </li>
+      </ul>
+    </aside>
+
+
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Precio</th>
+                <th scope="col">EjemplaresCant</th>
+                <th scope="col">Origen</th>
+                <th scope="col">Tema</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let libro of Libros">
+                <th scope="row">{{libro.idlibro}}</th>
+                <td>{{libro.titulo}}</td>
+                <td>{{libro.precio}}</td>
+                <td>{{libro.cantEjemplares}}</td>
+                <td>{{libro.origen}}</td>
+                <td>{{libro.tema.nombre}}</td>
+                <td><button style="margin-right: 12px;" class="btn btn-primary" [routerLink]="'/actuLibro/' + libro.idlibro">Editar</button>
+                    <button class="btn btn-danger" (click)="eliminarLibro(libro.idlibro)">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
